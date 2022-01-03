@@ -38,15 +38,15 @@ build/
 .idea/
 [Pp]ackages/
 src/Api/appsettings.Local.Tunnel.json
-COAweb/[Dd]ebug/
-COAweb/[Rr]elease/
-COAweb/x64/
-COAweb/build/
-COAweb/[Bb]in/
-COAweb/[Oo]bj/
-COAweb/.vs/
-COAweb/.idea/
-COAweb/[Pp]ackages/
+DivInf/[Dd]ebug/
+DivInf/[Rr]elease/
+DivInf/x64/
+DivInf/build/
+DivInf/[Bb]in/
+DivInf/[Oo]bj/
+DivInf/.vs/
+DivInf/.idea/
+DivInf/[Pp]ackages/
 
 
 
