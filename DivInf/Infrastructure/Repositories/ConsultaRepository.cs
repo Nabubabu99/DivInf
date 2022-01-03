@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DivInf.Infrastructure.Repositories
 {
-    public class ConsultaRepository : Repository<ConsultaModel>
+    public class ConsultaRepository : Repository<ConsultasModel>
     {
         private readonly ApplicationDbContext _context;
 
@@ -16,9 +16,9 @@ namespace DivInf.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<ConsultaModel> GetConsultaById(int? id)
+        public async Task<ConsultasModel> GetConsultaById(int? id)
         {
-            var entity = await _context.Consulta.FindAsync(id);
+            var entity = await _context.Consultas.FindAsync(id);
             return entity;
         }
     }

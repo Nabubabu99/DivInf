@@ -36,9 +36,9 @@ namespace DivInf
             services.AddScoped<IMedicoRepository, MedicoRepository>();
             services.AddScoped<IMedicoService, MedicoService>();
             services.AddScoped<IPacienteRepository, PacienteRepository>();
-            services.AddScoped<IPacienteService, PacienteService>();
-            services.AddScoped<IConsultaRepository, ConsultaRepository>();
-            services.AddScoped<IConsultaService, ConsultaService>();
+            //services.AddScoped<IPacienteService, PacienteService>();
+            //services.AddScoped<IConsultaRepository, ConsultaRepository>();
+            //services.AddScoped<IConsultaService, ConsultaService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

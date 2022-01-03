@@ -13,8 +13,8 @@ namespace DivInf.Infrastructure.Data
         {
         }
 
-        public DbSet<MedicoModel> Medico { get; set; }
-        public DbSet<ConsultaModel> Consulta { get; set; }
-        public DbSet<PacienteModel> Paciente { get; set; }
+        public DbSet<MedicosModel> Medicos { get; set; }
+        public DbSet<ConsultasModel> Consultas { get; set; }
+        public DbSet<PacientesModel> Pacientes { get; set; }
     }
 }

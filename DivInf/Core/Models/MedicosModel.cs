@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace DivInf.Core.Models
 {
-    public class MedicoModel : PersonaModel
+    public class MedicosModel : PersonasModel
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Key]
         public int Matricula { get; set; }
 

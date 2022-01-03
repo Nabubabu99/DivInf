@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DivInf.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220103145211_divinf")]
-    partial class divinf
+    [Migration("20220103185225_div")]
+    partial class div
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace DivInf.Migrations
                 .HasAnnotation("ProductVersion", "5.0.13")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("DivInf.Core.Models.ConsultaModel", b =>
+            modelBuilder.Entity("DivInf.Core.Models.ConsultasModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,15 +64,13 @@ namespace DivInf.Migrations
 
                     b.HasIndex("Matricula");
 
-                    b.ToTable("Consulta");
+                    b.ToTable("Consultas");
                 });
 
-            modelBuilder.Entity("DivInf.Core.Models.MedicoModel", b =>
+            modelBuilder.Entity("DivInf.Core.Models.MedicosModel", b =>
                 {
                     b.Property<int>("Matricula")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Especialidad")
                         .IsRequired()
@@ -86,15 +84,13 @@ namespace DivInf.Migrations
 
                     b.HasKey("Matricula");
 
-                    b.ToTable("Medico");
+                    b.ToTable("Medicos");
                 });
 
-            modelBuilder.Entity("DivInf.Core.Models.PacienteModel", b =>
+            modelBuilder.Entity("DivInf.Core.Models.PacientesModel", b =>
                 {
                     b.Property<int>("HistoriaClinica")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -103,18 +99,18 @@ namespace DivInf.Migrations
 
                     b.HasKey("HistoriaClinica");
 
-                    b.ToTable("Paciente");
+                    b.ToTable("Pacientes");
                 });
 
-            modelBuilder.Entity("DivInf.Core.Models.ConsultaModel", b =>
+            modelBuilder.Entity("DivInf.Core.Models.ConsultasModel", b =>
                 {
-                    b.HasOne("DivInf.Core.Models.PacienteModel", "Paciente")
+                    b.HasOne("DivInf.Core.Models.PacientesModel", "Paciente")
                         .WithMany()
                         .HasForeignKey("HistoriaClinica")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DivInf.Core.Models.MedicoModel", "Medico")
+                    b.HasOne("DivInf.Core.Models.MedicosModel", "Medico")
                         .WithMany()
                         .HasForeignKey("Matricula")
                         .OnDelete(DeleteBehavior.Cascade)

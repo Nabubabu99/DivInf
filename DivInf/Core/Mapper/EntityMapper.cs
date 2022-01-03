@@ -9,9 +9,9 @@ namespace DivInf.Core.Mapper
 {
     public class EntityMapper
     {
-        public MedicoModel FromMedicoDtoToMedicoModel(MedicoDTO medicoDTO)
+        public MedicosModel FromMedicoDtoToMedicoModel(MedicoDTO medicoDTO)
         {
-            var medico = new MedicoModel
+            var medico = new MedicosModel
             {
                 Matricula = medicoDTO.Matricula,
                 Nombre = medicoDTO.Nombre,
@@ -21,7 +21,7 @@ namespace DivInf.Core.Mapper
             return medico;
         }
 
-        public MedicoDTO FromMedicoModelToMedicoDto(MedicoModel medicoModel)
+        public MedicoDTO FromMedicoModelToMedicoDto(MedicosModel medicoModel)
         {
             var medico = new MedicoDTO
             {
@@ -33,7 +33,7 @@ namespace DivInf.Core.Mapper
             return medico;
         }
 
-        public MedicoModel FromMedicoUpdateDtoToMedicoModel(MedicoUpdateDTO medicoDTO, MedicoModel medicoModel)
+        public MedicosModel FromMedicoUpdateDtoToMedicoModel(MedicoUpdateDTO medicoDTO, MedicosModel medicoModel)
         {
             medicoModel.Nombre = medicoDTO.Nombre;
             medicoModel.Especialidad = medicoDTO.Especialidad;

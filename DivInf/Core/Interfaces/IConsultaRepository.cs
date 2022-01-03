@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DivInf.Core.Interfaces
 {
-    public interface IConsultaRepository : IRepository<ConsultaModel>
+    public interface IConsultaRepository : IRepository<ConsultasModel>
     {
-        Task<PacienteModel> GetConsultaById(int? id);
-        Task<IEnumerable<PacienteModel>> GetAll(string searchString);
+        Task<PacientesModel> GetConsultaById(int? id);
+        Task<IEnumerable<PacientesModel>> GetAll(string searchString);
     }
 }

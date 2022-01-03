@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DivInf.Core.Models
 {
-    public class ConsultaModel
+    public class ConsultasModel
     {
         [Key]
         public int Id { get; set; }
@@ -16,14 +16,12 @@ namespace DivInf.Core.Models
         [DataType(DataType.DateTime)]
         public DateTime Fecha { get; set; }
 
-        [Required(ErrorMessage = "La historia clinica es requerida.")]
         public int HistoriaClinica { get; set; }
 
         [Required(ErrorMessage = "La especialidad es requerida.")]
         [MaxLength(55, ErrorMessage = "La especialidad debe tener como máximo 55 caracteres.")]
         public string Especialidad { get; set; }
 
-        [Required(ErrorMessage = "La matricula del profesional es requerida.")]
         public int Matricula { get; set; }
 
         [Required(ErrorMessage = "El tipo de consulta es requerido.")]
@@ -41,9 +39,9 @@ namespace DivInf.Core.Models
         public float CostoMaterial { get; set; }
 
         [ForeignKey("Matricula")]
-        public virtual MedicoModel Medico { get; set; }
+        public virtual MedicosModel Medico { get; set; }
 
         [ForeignKey("HistoriaClinica")]
-        public virtual PacienteModel Paciente { get; set; }
+        public virtual PacientesModel Paciente { get; set; }
     }
 }

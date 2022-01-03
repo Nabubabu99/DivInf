@@ -13,5 +13,6 @@ namespace DivInf.Core.Interfaces
         Task AddMedico(MedicoDTO usuario);
         Task UpdateMedico(MedicoUpdateDTO medico, int id);
         Task DeleteMedico(int id);
+        Task<bool> GetMedicoByMatricula(int matricula);
     }
 }

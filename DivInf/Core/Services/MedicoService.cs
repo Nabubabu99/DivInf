@@ -96,5 +96,24 @@ namespace DivInf.Core.Services
                 throw new Exception(ex.Message);
             }
         }
+
+        public async Task<bool> GetMedicoByMatricula(int matricula)
+        {
+            try
+            {
+                var medico = await _medicoRepository.GetMedicoById(matricula);
+
+                if (medico != null)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

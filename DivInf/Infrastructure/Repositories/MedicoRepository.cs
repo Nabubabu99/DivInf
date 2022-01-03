@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DivInf.Infrastructure.Repositories
 {
-    public class MedicoRepository : Repository<MedicoModel>, IMedicoRepository
+    public class MedicoRepository : Repository<MedicosModel>, IMedicoRepository
     {
         private readonly ApplicationDbContext _context;
 
@@ -18,15 +18,15 @@ namespace DivInf.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<MedicoModel> GetMedicoById(int? id)
+        public async Task<MedicosModel> GetMedicoById(int? id)
         {
-            var entity = await _context.Medico.FindAsync(id);
+            var entity = await _context.Medicos.FindAsync(id);
             return entity;
         }
 
-        public async Task<IEnumerable<MedicoModel>> GetAll(string searchString)
+        public async Task<IEnumerable<MedicosModel>> GetAll(string searchString)
         {
-            var usuarios = await _context.Medico.Where(x => x.Nombre.Contains(searchString) || x.Especialidad.Contains(searchString)).ToListAsync();
+            var usuarios = await _context.Medicos.Where(x => x.Nombre.Contains(searchString) || x.Especialidad.Contains(searchString)).ToListAsync();
             return usuarios;
         }
     }
