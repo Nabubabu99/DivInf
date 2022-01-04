@@ -8,16 +8,14 @@ namespace DivInf.Core.DTOs
 {
     public class ConsultaUpdateDTO
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "La fecha es requerida.")]
         [DataType(DataType.DateTime)]
         public DateTime Fecha { get; set; }
 
         [Required(ErrorMessage = "La historia clinica es requerida.")]
         public int HistoriaClinica { get; set; }
-
-        [Required(ErrorMessage = "La especialidad es requerida.")]
-        [MaxLength(55, ErrorMessage = "La especialidad debe tener como máximo 55 caracteres.")]
-        public string Especialidad { get; set; }
 
         [Required(ErrorMessage = "La matricula del profesional es requerida.")]
         public int Matricula { get; set; }

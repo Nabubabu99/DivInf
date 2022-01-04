@@ -37,11 +37,6 @@ namespace DivInf.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("Especialidad")
-                        .IsRequired()
-                        .HasMaxLength(55)
-                        .HasColumnType("nvarchar(55)");
-
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
 

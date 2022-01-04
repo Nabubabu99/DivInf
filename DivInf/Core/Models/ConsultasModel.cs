@@ -15,13 +15,10 @@ namespace DivInf.Core.Models
         [Required(ErrorMessage = "La fecha es requerida.")]
         [DataType(DataType.DateTime)]
         public DateTime Fecha { get; set; }
-
+        [Required(ErrorMessage = "La historia clinica es requerida.")]
         public int HistoriaClinica { get; set; }
 
-        [Required(ErrorMessage = "La especialidad es requerida.")]
-        [MaxLength(55, ErrorMessage = "La especialidad debe tener como máximo 55 caracteres.")]
-        public string Especialidad { get; set; }
-
+        [Required(ErrorMessage = "La matricula es requerida.")]
         public int Matricula { get; set; }
 
         [Required(ErrorMessage = "El tipo de consulta es requerido.")]

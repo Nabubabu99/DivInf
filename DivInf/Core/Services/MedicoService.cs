@@ -78,11 +78,11 @@ namespace DivInf.Core.Services
             }
         }
 
-        public async Task UpdateMedico(MedicoUpdateDTO medicoDTO, int id)
+        public async Task UpdateMedico(MedicoUpdateDTO medicoDTO)
         {
             try
             {
-                var medicoToUpdate = await _medicoRepository.GetMedicoById(id);
+                var medicoToUpdate = await _medicoRepository.GetMedicoById(medicoDTO.Matricula);
 
                 if (medicoToUpdate != null)
                 {
@@ -97,18 +97,21 @@ namespace DivInf.Core.Services
             }
         }
 
-        public async Task<bool> GetMedicoByMatricula(int matricula)
+        public async Task<MedicoDTO> GetMedicoByMatricula(int? matricula)
         {
             try
             {
+                var mapper = new EntityMapper();
                 var medico = await _medicoRepository.GetMedicoById(matricula);
 
                 if (medico != null)
                 {
-                    return true;
+                    var medicoUpdate = mapper.FromMedicoModelToMedicoDto(medico);
+
+                    return medicoUpdate;
                 }
 
-                return false;
+                return null;
             }
             catch (Exception ex)
             {

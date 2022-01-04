@@ -323,7 +323,6 @@ C:\Users\nabum\source\repos\DivInf\DivInf\bin\Debug\net5.0\ru\Microsoft.CodeAnal
 C:\Users\nabum\source\repos\DivInf\DivInf\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\nabum\source\repos\DivInf\DivInf\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\nabum\source\repos\DivInf\DivInf\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\DivInf.csproj.AssemblyReference.cache
 C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\DivInf.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\DivInf.AssemblyInfoInputs.cache
 C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\DivInf.AssemblyInfo.cs
@@ -429,3 +428,14 @@ C:\Users\nabum\source\repos\DivInf\DivInf\bin\Debug\net5.0\runtimes\win\lib\nets
 C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\Razor\Views\Medico\Index.cshtml.g.cs
 C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\Razor\Views\Medico\Create.cshtml.g.cs
 C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\Razor\Views\Medico\Edit.cshtml.g.cs
+C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\Razor\Views\Medico\Delete.cshtml.g.cs
+C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\Razor\Views\Paciente\Index.cshtml.g.cs
+C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\Razor\Views\Paciente\Create.cshtml.g.cs
+C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\Razor\Views\Paciente\Edit.cshtml.g.cs
+C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\Razor\Views\Paciente\Delete.cshtml.g.cs
+C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\DivInf.csproj.AssemblyReference.cache
+C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\Razor\Views\Consulta\Create.cshtml.g.cs
+C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\Razor\Views\Consulta\Delete.cshtml.g.cs
+C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\Razor\Views\Consulta\Edit.cshtml.g.cs
+C:\Users\nabum\source\repos\DivInf\DivInf\obj\Debug\net5.0\Razor\Views\Consulta\Index.cshtml.g.cs

@@ -26,8 +26,8 @@ namespace DivInf.Infrastructure.Repositories
 
         public async Task<IEnumerable<MedicosModel>> GetAll(string searchString)
         {
-            var usuarios = await _context.Medicos.Where(x => x.Nombre.Contains(searchString) || x.Especialidad.Contains(searchString)).ToListAsync();
-            return usuarios;
+            var medicos = await _context.Medicos.Where(x => x.Nombre.Contains(searchString) || x.Especialidad.Contains(searchString)).ToListAsync();
+            return medicos;
         }
     }
 }

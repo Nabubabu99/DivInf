@@ -8,6 +8,8 @@ namespace DivInf.Core.DTOs
 {
     public class MedicoUpdateDTO
     {
+        [Required(ErrorMessage = "La matricula es requerida.")]
+        public int Matricula { get; set; }
         [Required(ErrorMessage = "El Nombre es requerido.")]
         [MaxLength(55, ErrorMessage = "El Nombre debe tener como máximo 55 caracteres.")]
         public string Nombre { get; set; }

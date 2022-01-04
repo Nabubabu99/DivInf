@@ -27,39 +27,39 @@ namespace DivInf.Controllers
             {
                 ViewData["EspecialidadSortParm"] = String.IsNullOrEmpty(sortOrder) ? "especialidadDesc" : "especialidad";
                 ViewData["NombreSortParm"] = sortOrder == "nombre" ? "nombreDesc" : "nombre";
-                ViewData["NombreSortParm"] = sortOrder == "matricula" ? "matriculaDesc" : "matricula";
+                ViewData["MatriculaSortParm"] = sortOrder == "matricula" ? "matriculaDesc" : "matricula";
                 ViewData["CurrentFilter"] = searchString;
 
-                var listUsuarios = await _medicoService.GetMedicos();
+                var listMedicos = await _medicoService.GetMedicos();
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
-                    listUsuarios = await _medicoService.GetMedicos(searchString);
+                    listMedicos = await _medicoService.GetMedicos(searchString);
                 }
 
                 switch (sortOrder)
                 {
                     case "especialidadDesc":
-                        listUsuarios = listUsuarios.OrderByDescending(x => x.Especialidad);
+                        listMedicos = listMedicos.OrderByDescending(x => x.Especialidad);
                         break;
                     case "nombre":
-                        listUsuarios = listUsuarios.OrderBy(x => x.Nombre);
+                        listMedicos = listMedicos.OrderBy(x => x.Nombre);
                         break;
                     case "nombreDesc":
-                        listUsuarios = listUsuarios.OrderByDescending(x => x.Nombre);
+                        listMedicos = listMedicos.OrderByDescending(x => x.Nombre);
                         break;
                     case "especialidad":
-                        listUsuarios = listUsuarios.OrderBy(x => x.Especialidad);
+                        listMedicos = listMedicos.OrderBy(x => x.Especialidad);
                         break;
                     case "matriculaDesc":
-                        listUsuarios = listUsuarios.OrderByDescending(x => x.Matricula);
+                        listMedicos = listMedicos.OrderByDescending(x => x.Matricula);
                         break;
                     default:
-                        listUsuarios = listUsuarios.OrderBy(x => x.Matricula);
+                        listMedicos = listMedicos.OrderBy(x => x.Matricula);
                         break;
                 }
 
-                return View(listUsuarios);
+                return View(listMedicos);
             }
             catch (Exception ex)
             {
@@ -80,7 +80,7 @@ namespace DivInf.Controllers
             {
                 var medicoExist = await _medicoService.GetMedicoByMatricula(medico.Matricula);
 
-                if (medicoExist != false)
+                if (medicoExist != null)
                 {
                     TempData["mensaje"] = "Ya existe un medico con esa matricula.";
                 }
@@ -92,6 +92,99 @@ namespace DivInf.Controllers
                     return RedirectToAction("Index");
                 }
                 return View();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpGet("edit")]
+        public async Task<IActionResult> Edit(int? matricula)
+        {
+            try
+            {
+                if (matricula == null || matricula == 0)
+                {
+                    return NotFound();
+                }
+
+                var medico = await _medicoService.GetMedicoByMatricula(matricula);
+
+                if (medico == null)
+                {
+                    return NotFound();
+                }
+
+                return View(medico);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpPost("edit")]
+        public async Task<IActionResult> Edit([FromForm] MedicoUpdateDTO medico)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    await _medicoService.UpdateMedico(medico);
+
+                    TempData["mensaje"] = "El medico se ha actualizado correctamente.";
+                    return RedirectToAction("Index");
+                }
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpGet("delete/{matricula}")]
+        public async Task<IActionResult> Delete(int? matricula)
+        {
+            try
+            {
+                if (matricula == null || matricula == 0)
+                {
+                    return NotFound();
+                }
+
+                var medico = await _medicoService.GetMedicoByMatricula(matricula);
+
+                if (medico == null)
+                {
+                    return NotFound();
+                }
+
+                return View(medico);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpPost("delete/{matricula}")]
+        public async Task<IActionResult> Delete(int matricula)
+        {
+            try
+            {
+                var medico = await _medicoService.GetMedicoByMatricula(matricula);
+
+                if (medico == null)
+                {
+                    return NotFound();
+                }
+
+                await _medicoService.DeleteMedico(matricula);
+
+                TempData["mensaje"] = "El medico se ha eliminado correctamente.";
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {

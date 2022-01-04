@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DivInf.Migrations
 {
-    public partial class div : Migration
+    public partial class divinf : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,7 +40,6 @@ namespace DivInf.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
                     HistoriaClinica = table.Column<int>(type: "int", nullable: false),
-                    Especialidad = table.Column<string>(type: "nvarchar(55)", maxLength: 55, nullable: false),
                     Matricula = table.Column<int>(type: "int", nullable: false),
                     Tipo = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Costo = table.Column<float>(type: "real", nullable: false),

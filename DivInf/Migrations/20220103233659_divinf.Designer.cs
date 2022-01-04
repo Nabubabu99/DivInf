@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DivInf.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220103185225_div")]
-    partial class div
+    [Migration("20220103233659_divinf")]
+    partial class divinf
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,11 +38,6 @@ namespace DivInf.Migrations
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("Especialidad")
-                        .IsRequired()
-                        .HasMaxLength(55)
-                        .HasColumnType("nvarchar(55)");
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");

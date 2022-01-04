@@ -40,5 +40,80 @@ namespace DivInf.Core.Mapper
 
             return medicoModel;
         }
+
+        public PacientesModel FromPacienteDtoToPacienteModel(PacienteDTO pacienteDTO)
+        {
+            var paciente = new PacientesModel
+            {
+                HistoriaClinica = pacienteDTO.HistoriaClinica,
+                Nombre = pacienteDTO.Nombre
+            };
+
+            return paciente;
+        }
+
+        public PacienteDTO FromPacientesModelToPacienteDto(PacientesModel pacienteModel)
+        {
+            var paciente = new PacienteDTO
+            {
+                HistoriaClinica = pacienteModel.HistoriaClinica,
+                Nombre = pacienteModel.Nombre
+            };
+
+            return paciente;
+        }
+
+        public PacientesModel FromPacienteUpdateDtoToPacientesModel(PacienteUpdateDTO pacienteDTO, PacientesModel pacienteModel)
+        {
+            pacienteModel.Nombre = pacienteDTO.Nombre;
+
+            return pacienteModel;
+        }
+
+        public ConsultasModel FromConsultaDtoToConsultasModel(ConsultaDTO consultaDTO)
+        {
+            var consulta = new ConsultasModel
+            {
+                Fecha = consultaDTO.Fecha,
+                Matricula = consultaDTO.Matricula,
+                Tipo = consultaDTO.Tipo,
+                Costo = consultaDTO.Costo,
+                Descripcion = consultaDTO.Descripcion,
+                CostoMaterial = consultaDTO.CostoMaterial,
+                HistoriaClinica = consultaDTO.HistoriaClinica
+            };
+
+            return consulta;
+        }
+
+        public ConsultaDTO FromConsultasModelToConsultaDto(ConsultasModel consultaModel)
+        {
+            var consulta = new ConsultaDTO
+            {
+                Id = consultaModel.Id,
+                Fecha = consultaModel.Fecha,
+                Matricula = consultaModel.Matricula,
+                Tipo = consultaModel.Tipo,
+                Costo = consultaModel.Costo,
+                Descripcion = consultaModel.Descripcion,
+                CostoMaterial = consultaModel.CostoMaterial,
+                HistoriaClinica = consultaModel.HistoriaClinica
+            };
+
+            return consulta;
+        }
+
+        public ConsultasModel FromConsultaUpdateDtoToConsultasModel(ConsultaUpdateDTO consultaDTO, ConsultasModel consultaModel)
+        {
+            consultaModel.Fecha = consultaDTO.Fecha;
+            consultaModel.Matricula = consultaDTO.Matricula;
+            consultaModel.Tipo = consultaDTO.Tipo;
+            consultaModel.Costo = consultaDTO.Costo;
+            consultaModel.Descripcion = consultaDTO.Descripcion;
+            consultaModel.CostoMaterial = consultaDTO.CostoMaterial;
+            consultaModel.HistoriaClinica = consultaDTO.HistoriaClinica;
+
+            return consultaModel;
+        }
     }
 }

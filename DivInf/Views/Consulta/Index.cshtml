@@ -1,0 +1,85 @@
+﻿@model IEnumerable<DivInf.Core.DTOs.ConsultaDTO>
+
+@{
+    ViewData["Title"] = "Consulta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" arial-label="close">
+                <span arial-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-sm-3">
+            <h2>Lista de consultas</h2>
+        </div>
+        <div class="col-sm-6">
+            <form asp-action="Index" method="get">
+                <div class="form-actions text-black font-weight-bold">
+                    <p>
+                        Filtro: <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" />
+                        <input type="submit" value="Buscar" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-light">Ver todos los consultas</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-3 justify-content-end">
+            <a class="btn btn-success d-block" asp-action="Create" asp-controller="Consulta">Agregar nuevo consultas</a>
+        </div>
+    </div>
+
+    <div class="row container">
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                    <tr>
+                        <th>
+                            <a asp-action="Index" asp-route-sortOrder="@ViewData["fechaSortParm"]">@Html.DisplayNameFor(x => x.Fecha)</a>
+                        </th>
+                        <th>Matricula</th>
+                        <th>Tipo</th>
+                        <th>
+                            <a asp-action="Index" asp-route-sortOrder="@ViewData["CostoSortParm"]">@Html.DisplayNameFor(x => x.Costo)</a>
+                        </th>
+                        <th>Descripción</th>
+                        <th>Costo material</th>
+                        <th>Historia clinica</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.Fecha</td>
+                        <td>@item.Matricula</td>
+                        <td>@item.Tipo</td>
+                        <td>@item.Costo</td>
+                        <td>@item.Descripcion</td>
+                        <td>@item.CostoMaterial</td>
+                        <td>@item.HistoriaClinica</td>
+                        <td>
+                            <a asp-controller="Consulta" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                            <a asp-controller="Consulta" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h3 class="text-black text-danger">No hay consultas</h3>
+        }
+    </div>
+</div>

@@ -8,7 +8,7 @@ namespace DivInf.Core.Interfaces
 {
     public interface IConsultaRepository : IRepository<ConsultasModel>
     {
-        Task<PacientesModel> GetConsultaById(int? id);
-        Task<IEnumerable<PacientesModel>> GetAll(string searchString);
+        Task<ConsultasModel> GetConsultaById(int? id);
+        Task<IEnumerable<ConsultasModel>> GetAll(string searchString);
     }
 }

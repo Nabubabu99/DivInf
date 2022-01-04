@@ -11,8 +11,8 @@ namespace DivInf.Core.Interfaces
         Task<IEnumerable<MedicoDTO>> GetMedicos();
         Task<IEnumerable<MedicoDTO>> GetMedicos(string searchString);
         Task AddMedico(MedicoDTO usuario);
-        Task UpdateMedico(MedicoUpdateDTO medico, int id);
+        Task UpdateMedico(MedicoUpdateDTO medico);
         Task DeleteMedico(int id);
-        Task<bool> GetMedicoByMatricula(int matricula);
+        Task<MedicoDTO> GetMedicoByMatricula(int? matricula);
     }
 }
