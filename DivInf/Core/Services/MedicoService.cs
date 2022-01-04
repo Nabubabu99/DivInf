@@ -1,7 +1,6 @@
 ﻿using DivInf.Core.DTOs;
 using DivInf.Core.Interfaces;
 using DivInf.Core.Mapper;
-using DivInf.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
